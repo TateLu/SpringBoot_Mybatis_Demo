@@ -10,4 +10,8 @@ public interface UserService {
 
     String addUser(User record);
 
+    String updateUser(User record);
+
+    String deleteUserById(int userId);
+
 }

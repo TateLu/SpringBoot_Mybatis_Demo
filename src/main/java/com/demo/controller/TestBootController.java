@@ -21,16 +21,27 @@ public class TestBootController {
     * userId:用户的id
     *
     * */
-    @GetMapping("/getuser")
+    @GetMapping("/user/get")
     public User getUserById(int userId){
 
 
         return userService.getUserById(userId);
     }
 
-    @PostMapping("/adduser")
+    @PostMapping("/user/add")
     public String addUser(User user){
         return userService.addUser(user);
+    }
+
+    @PutMapping("/user/update")
+    public String updateUser(User user){
+        return userService.updateUser(user);
+    }
+
+
+    @DeleteMapping("/user/delete")
+    public String deleteUser(int userId){
+        return userService.deleteUserById(userId);
     }
 
 

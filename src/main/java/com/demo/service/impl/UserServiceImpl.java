@@ -19,7 +19,15 @@ public class UserServiceImpl implements UserService {
 
 
     public User getUserById(int userId) {
-        return userDao.selectByPrimaryKey(userId);
+        try {
+            return userDao.selectByPrimaryKey(userId);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
 
     public String addUser(User record){
@@ -33,5 +41,33 @@ public class UserServiceImpl implements UserService {
 
         return "failure";
     }
+
+    @Override
+    public String updateUser(User record) {
+
+        try {
+            userDao.updateByPrimaryKey(record);
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "failure";
+    }
+
+    @Override
+    public String deleteUserById(int userId) {
+
+        try {
+            userDao.deleteByPrimaryKey(userId);
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "failure";
+
+    }
+
 
 }
