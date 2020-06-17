@@ -22,16 +22,16 @@ public class UserServiceImpl implements UserService {
         return userDao.selectByPrimaryKey(userId);
     }
 
-    public boolean addUser(User record){
-        boolean result = false;
+    public String addUser(User record){
+
         try {
-            userDao.insertSelective(record);
-            result = true;
+            userDao.insert(record);
+            return "success";
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return result;
+        return "failure";
     }
 
 }

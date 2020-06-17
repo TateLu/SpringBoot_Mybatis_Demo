@@ -4,31 +4,36 @@ import com.demo.entity.User;
 import com.demo.service.UserService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping("/test")
+@RequestMapping("demo/test")
 public class TestBootController {
-/*    @RequestMapping("getuser")
-    public User getUser() {
-        User user = new User();
-        user.setName("test");
-        return user;
-    }*/
+
     @Resource
     private UserService userService;
 
-    @RequestMapping("/getuser")
-    @ResponseBody
-    public User toIndex(HttpServletRequest request, Model model){
-        int userId = Integer.parseInt(request.getParameter("id"));
-        User user = this.userService.getUserById(userId);
-        return user;
+    /*参数：(区分大小写，get请求里需要设置 userId:1)
+    * userId:用户的id
+    *
+    * */
+    @GetMapping("/getuser")
+    public User getUserById(int userId){
+
+
+        return userService.getUserById(userId);
     }
+
+    @PostMapping("/adduser")
+    public String addUser(User user){
+        return userService.addUser(user);
+    }
+
+
+
+
 }
