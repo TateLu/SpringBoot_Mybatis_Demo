@@ -17,7 +17,7 @@ public class TestBootController {
     @Resource
     private UserService userService;
 
-    /*参数：(区分大小写，get请求里需要设置 userId:1)
+    /*参数：(区分大小写，get请求里需要设置  userId:1)
     * userId:用户的id
     *
     * */
