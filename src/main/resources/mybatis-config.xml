@@ -8,6 +8,8 @@
     <settings>
         <setting name="useGeneratedKeys" value="true"/>
         <setting name="useColumnLabel" value="true"/>
+
+        <!--驼峰命名匹配-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
 </configuration>
