@@ -69,5 +69,17 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public List<User> getAllUsers() {
+        try {
+            return userDao.selectAllUsers();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 
 }

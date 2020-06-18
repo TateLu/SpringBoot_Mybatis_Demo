@@ -23,6 +23,7 @@ jdbc:
 #mybatis
 mybatis:
   config_file: mybatis-config.xml
+  #mybatis mapper.xml文件里，使用别名，如：类型为com.demo.entiy.User 可以直接写成 User
   typeAliasesPackage: com.demo.entity
   mapperLocations: classpath:mappers/*.xml
 

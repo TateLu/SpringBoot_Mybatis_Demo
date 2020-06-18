@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
@@ -43,6 +44,14 @@ public class TestBootController {
     public String deleteUser(int userId){
         return userService.deleteUserById(userId);
     }
+
+    @GetMapping("/user/getallusers")
+    public List<User> getAllUsers(){
+
+
+        return userService.getAllUsers();
+    }
+
 
 
 
