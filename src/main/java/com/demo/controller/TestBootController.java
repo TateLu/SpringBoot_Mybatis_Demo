@@ -2,6 +2,8 @@ package com.demo.controller;
 
 import com.demo.entity.User;
 import com.demo.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +12,12 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+
 @RestController
 @EnableAutoConfiguration
 @RequestMapping("demo/test")
 public class TestBootController {
+    private static final Logger logger = LoggerFactory.getLogger(TestBootController.class);
 
     @Resource
     private UserService userService;
@@ -25,7 +29,7 @@ public class TestBootController {
     @GetMapping("/user/get")
     public User getUserById(int userId){
 
-
+        logger.info("getuser访问成功");
         return userService.getUserById(userId);
     }
 
